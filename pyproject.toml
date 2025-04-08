@@ -3,8 +3,21 @@ name = "xvoice-decomp"
 version = "0.1.0"
 description = "Add your description here"
 readme = "README.md"
-requires-python = ">=3.13"
-dependencies = ["torch>=2.5.1", "numpy", "rich", "polars"]
+requires-python = ">=3.10,<3.13"
+dependencies = [
+    "torch>=2.5.1",
+    "numpy",
+    "rich",
+    "polars",
+    "librosa",
+    "safetensors",
+    "transformers",
+    "xcodec2",
+    "torchaudio>=2.6.0",
+    "torchtune>=0.5.0",
+    "torchao>=0.9.0",
+    "setuptools>=76.1.0",
+]
 
 [project.optional-dependencies]
 cpu = ["torch>=2.5.1"]
@@ -30,6 +43,11 @@ conflicts = [
         { extra = "rocm" },
     ],
 ]
+
+[[tool.uv.dependency-metadata]]
+name = "xcodec2"
+requires-dist = ["torch", "transformers", "sentencepiece", "vector-quantize-pytorch", "tokenizers", "sympy==1.13.1"]
+
 
 [[tool.uv.index]]
 name = "pytorch-cpu"
